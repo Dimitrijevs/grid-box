@@ -5,13 +5,21 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
     display: grid;
     grid-template-columns: 16% 84%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main-page";
+    height: 100vh;
     overflow: hidden;
 }
 
 #sidebar {
-    height: 100vh;
+    grid-area: sidebar;
+    width: 100%;
+    height: 100%;
     background-color: #f7774d;
 }
 
@@ -54,12 +62,14 @@ body {
 }
 
 #header {
+    grid-area: header;
+    width: 100%;
+    height: 100%;
     padding: 10px 30px;
     display: grid;
-    height: 16%;
     grid-template-rows: 33.33% 66.66%;
     grid-template-columns: 66.66% 33.33%;
-    box-shadow: 8px 8px 16px 8px #a6a5a2;
+    box-shadow: 8px 8px 16px 8px #cfcfcd;
 }
 
 #search-container {
@@ -159,4 +169,64 @@ body {
 
 #btns-container .header-btn:hover {
     text-decoration: underline;
+}
+
+#main-page {
+    grid-area: main-page;
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+    height: 90%;
+    margin: 80px 0 0 20px;
+}
+
+#left-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Style for the .window container */
+.window {
+    width: 70%;
+    height: 65%;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f8f7f7;
+    border-left: 15px solid #f7774d;
+    box-shadow: 6px 8px 12px 2px #cfcfcd;
+    transition: 0.3s;
+    font-size: 1rem;
+    grid-auto-flow: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    margin: 10px;
+}
+
+/* Style for the .window on hover */
+.window:hover {
+    border-left: 15px solid #e02c2c;
+}
+
+/* Style for the #window-images container */
+.window-images {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-end; /* Align this div to the bottom of .window */
+}
+
+/* Style for the .window-img elements */
+.window-img {
+    height: 35px;
+    margin: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.window-img:hover {
+    height: 40px;
 }
